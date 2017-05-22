@@ -1,0 +1,32 @@
+{
+  "name": "supr/supr",
+  "description": "supr integration extension",
+  "type": "typo3-cms-extension",
+  "license": "GPL-2.0+",
+  "repositories": {
+    "0": {
+      "type": "composer",
+      "url": "https://composer.typo3.org/"
+    }
+  },
+  "authors": [
+    {
+      "name": "TYPO3 GmbH",
+      "role": "Developer",
+      "homepage": "https://typo3.com/"
+    }
+  ],
+ "autoload": {
+    "psr-4": {
+      "Supr\\Supr\\": "Classes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Supr\\Supr\\Tests\\": "Tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5"
+  }
+}

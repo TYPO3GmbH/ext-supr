@@ -13,7 +13,7 @@ call_user_func(
                 'tx_supr',
                 'top',
                 [
-                    'Backend' => 'index',
+                    'Backend' => 'index, widgets, suprWidget',
                 ],
                 [
                     'access' => 'admin',

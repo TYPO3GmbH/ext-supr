@@ -9,6 +9,12 @@
             <trans-unit id="supr_integration.headline">
                 <source>Supr Integration</source>
             </trans-unit>
+            <trans-unit id="supr_integration.widgetsInUse">
+                <source>Supr Widgets List</source>
+            </trans-unit>
+            <trans-unit id="supr_integration.previewWidget">
+                <source>preview Widget</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -82,6 +82,27 @@ class BackendController extends ActionController {
     }
 
     /**
+     * Render all widgets
+     */
+    public function widgetsAction()
+    {
+        $widgetsInUse = [];
+        $widgetsInUse[] = 'widget 1';
+        $widgetsInUse[] = 'widget 2';
+        $this->view->assign('widgetsInUse', $widgetsInUse);
+        $this->view->assign('returnUrl', urlencode($this->uriBuilder->reset()->uriFor('widgets', [], 'Backend')));
+    }
+
+    /**
+     * use an iFrame to display a preview directly from supr source
+     *
+     * @param int $suprGuid
+     */
+    public function suprWidgetAction(int $suprGuid) {
+
+    }
+
+    /**
      * Set Backend Module Templates
      *
      * @return void

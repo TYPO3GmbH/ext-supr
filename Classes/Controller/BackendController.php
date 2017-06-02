@@ -14,11 +14,13 @@ namespace Supr\Supr\Controller;
  *
  * The TYPO3 project - inspiring people to share!
  */
+use Supr\Supr\Service\SuprWidgetsApiService;
 use TYPO3\CMS\Backend\Template\Components\Menu\Menu;
 use TYPO3\CMS\Backend\Template\Components\MenuRegistry;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
 use TYPO3\CMS\Core\Page\PageRenderer;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
@@ -86,9 +88,9 @@ class BackendController extends ActionController {
      */
     public function widgetsAction()
     {
-        $widgetsInUse = [];
-        $widgetsInUse[] = 'widget 1';
-        $widgetsInUse[] = 'widget 2';
+        $suprApiService = GeneralUtility::makeInstance(SuprWidgetsApiService::class);
+        $widgetsInUse = $suprApiService->getAllAvailableWidgets();
+
         $this->view->assign('widgetsInUse', $widgetsInUse);
         $this->view->assign('returnUrl', urlencode($this->uriBuilder->reset()->uriFor('widgets', [], 'Backend')));
     }

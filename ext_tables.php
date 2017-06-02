@@ -21,6 +21,11 @@ call_user_func(
                     'labels' => 'LLL:EXT:supr/Resources/Private/Language/locallang_mod.xlf'
                 ]
             );
+            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+                'Supr.supr',
+                'suprWidget',
+                'Supr Widget'
+            );
         }
     }
 );

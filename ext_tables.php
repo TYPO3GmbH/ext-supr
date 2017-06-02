@@ -8,7 +8,7 @@ call_user_func(
     function () {
         if (TYPO3_MODE === 'BE') {
             \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-                'Supr.supr',
+                'Supr.Supr',
                 'tools',
                 'tx_supr',
                 'top',
@@ -20,11 +20,6 @@ call_user_func(
                     'icon' => 'EXT:supr/Resources/Public/Icons/module-supr.svg',
                     'labels' => 'LLL:EXT:supr/Resources/Private/Language/locallang_mod.xlf'
                 ]
-            );
-            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-                'Supr.supr',
-                'suprWidget',
-                'Supr Widget'
             );
         }
     }

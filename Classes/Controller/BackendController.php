@@ -72,6 +72,16 @@ class BackendController extends ActionController {
     }
 
     /**
+     * Render overview of available supr integration backend modules
+     */
+    public function indexAction()
+    {
+        $this->view->assign(
+            'widgetsView', $this->uriBuilder->reset()->uriFor('widgets', [], 'Backend')
+        );
+    }
+
+    /**
      * Set Backend Module Templates
      *
      * @return void

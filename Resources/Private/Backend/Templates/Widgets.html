@@ -1,0 +1,22 @@
+{namespace core = TYPO3\CMS\Core\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://xsd.helhum.io/ns/typo3/cms-fluid/master/ViewHelpers">
+  <f:layout name="Main"/>
+  <f:section name="content">
+    <h2>
+      <f:translate key="supr_integration.widgetsInUse"/>
+    </h2>
+
+    <ul>
+      <f:for each="{widgetsInUse}" as="widget" key="widget_number">
+        <li>
+          {widget}<br />
+          <f:link.action action="suprWidget" controller="Backend" extensionName="supr" arguments="{suprGuid: widget_number}" class="btn btn-default btn-sm">
+            <core:icon identifier="actions-view" size="small"/>
+            <f:translate key="supr_integration.previewWidget"/>
+          </f:link.action>
+        </li>
+      </f:for>
+    </ul>
+  </f:section>
+</div>

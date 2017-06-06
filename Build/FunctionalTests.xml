@@ -2,12 +2,12 @@
 <phpunit
 		backupGlobals="true"
 		backupStaticAttributes="false"
-        bootstrap="../../../../../vendor/typo3/testing-framework/Resources/Core/Build/UnitTestsBootstrap.php"
+        bootstrap="../../../../../vendor/typo3/cms/components/testing_framework/Resources/Core/Build/UnitTestsBootstrap.php"
 		colors="true"
 		convertErrorsToExceptions="true"
 		convertWarningsToExceptions="true"
 		forceCoversAnnotation="false"
-		processIsolation="false"
+		processIsolation="true"
 		stopOnError="false"
 		stopOnFailure="false"
 		stopOnIncomplete="false"
@@ -16,7 +16,7 @@
 >
 	<testsuites>
 		<testsuite name="supr extension">
-			<directory>../Tests/Unit</directory>
+			<directory>../Tests/Functional</directory>
 		</testsuite>
 	</testsuites>
 	<filter>

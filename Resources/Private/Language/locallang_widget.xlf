@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+    <file t3:id="1501078892" source-language="en" datatype="plaintext" original="messages" date="2017-07-26T14:21:32Z" product-name="supr">
+        <header/>
+        <body>
+            <trans-unit id="supr.widget.code">
+                <source>Code: %s</source>
+            </trans-unit>
+            <trans-unit id="supr.widget.product_id">
+                <source>Product ID: %s</source>
+            </trans-unit>
+            <trans-unit id="tt_content.supr_widget_id.wizard.price.additional_shipping_costs">
+                <source>excl. shipping costs</source>
+            </trans-unit>
+            <trans-unit id="tt_content.supr_widget_id.wizard.price.incl_vat">
+                <source>incl. %g%% VAT</source>
+            </trans-unit>
+            <trans-unit id="tt_content.supr_widget_id.wizard.price.delivery_time">
+                <source>Delivery time: %s</source>
+            </trans-unit>
+            <trans-unit id="tt_content.supr_widget_id.wizard.preview.title">
+                <source>Preview</source>
+            </trans-unit>
+            <trans-unit id="tt_content.supr_widget_id.wizard.preview.message">
+                <source>This is a simulated preview of the selected widget. It does not represent the actual look and feel and is only intended to give a visual hint which widget is selected.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

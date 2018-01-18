@@ -1,0 +1,15 @@
+lib.contentElement {
+    layoutRootPaths {
+        30 = EXT:supr/Resources/Private/Layouts/
+    }
+
+    templateRootPaths {
+        30 = EXT:supr/Resources/Private/Templates/
+    }
+
+    partialRootPaths {
+        30 = EXT:supr/Resources/Private/Partials/
+    }
+}
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:supr/Configuration/TypoScript/ContentElement/SuprWidget.typoscript">

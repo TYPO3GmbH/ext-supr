@@ -1,5 +1,5 @@
 {
-  "name": "supr/supr",
+  "name": "wmdb/supr",
   "description": "supr integration extension",
   "type": "typo3-cms-extension",
   "license": "GPL-2.0+",
@@ -14,19 +14,32 @@
       "name": "TYPO3 GmbH",
       "role": "Developer",
       "homepage": "https://typo3.com/"
+    },
+    {
+      "name": "WMDB Systems GmbH",
+      "role": "Developer",
+      "homepage": "https://www.wmdb.de/"
     }
   ],
- "autoload": {
+  "replace": {
+    "supr": "self.version",
+    "wmdb/supr": "self.version"
+  },
+  "require": {
+    "typo3/cms-core": "^8.7",
+    "typo3/cms-fluid-styled-content": "^8.7"
+  },
+  "require-dev": {
+    "typo3/testing-framework": "^1.1"
+  },
+  "autoload": {
     "psr-4": {
-      "Supr\\Supr\\": "Classes/"
+      "WMDB\\Supr\\": "Classes/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Supr\\Supr\\Tests\\": "Tests/"
+      "WMDB\\Supr\\Tests\\": "Tests/"
     }
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^5"
   }
 }

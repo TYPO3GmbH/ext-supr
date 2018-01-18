@@ -1,29 +1,23 @@
 <?php
-/************************************************************************
- * Extension Manager/Repository config file for ext "supr".
- ************************************************************************/
-$EM_CONF[$_EXTKEY] = [
-    'title' => 'Supr Integration',
-    'description' => 'Supr integration',
-    'category' => 'extension',
-    'constraints' => [
-        'depends' => [
-            'typo3' => '8.0.0-8.99.99'
-        ],
-        'conflicts' => [
-        ],
-    ],
-    'autoload' => [
-        'psr-4' => [
-            'Supr\\Supr\\' => 'Classes'
-        ],
-    ],
+
+$EM_CONF['supr'] = [
+    'title' => 'Supr',
+    'description' => 'TYPO3 integration of SUPR.com',
+    'category' => '',
+    'author' => 'WMDB Systems GmbH',
+    'author_email' => 'info@wmdb.de',
     'state' => 'alpha',
     'uploadfolder' => 0,
     'createDirs' => '',
-    'clearCacheOnLoad' => 1,
-    'author' => 'Anja Leichsenring',
-    'author_email' => 'anja.leichsenring@typo3.com',
-    'author_company' => 'TYPO3 GmbH',
-    'version' => '0.0.1',
+    'clearCacheOnLoad' => 0,
+    'author_company' => '',
+    'version' => '1.0.0',
+    'constraints' => [
+        'depends' => [
+            'typo3' => '8.7.0-8.7.99',
+            'fluid_styled_content' => '8.7.0-8.7.99',
+        ],
+        'conflicts' => [],
+        'suggests' => [],
+    ],
 ];

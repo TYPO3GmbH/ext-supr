@@ -1,0 +1,17 @@
+mod.wizards {
+    newContentElement.wizardItems {
+        special {
+            elements {
+                supr_widget {
+                    iconIdentifier = content-supr-widget
+                    title = LLL:EXT:supr/Resources/Private/Language/locallang_db_new_content_el.xlf:special_supr_widget_title
+                    description = LLL:EXT:supr/Resources/Private/Language/locallang_db_new_content_el.xlf:special_supr_widget_description
+                    tt_content_defValues {
+                        CType = supr_widget
+                    }
+                }
+            }
+            show := addToList(supr_widget)
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+    <file t3:id="1504689344" source-language="en" datatype="plaintext" original="messages" date="2017-09-06T09:15:44Z" product-name="supr">
+        <header/>
+        <body>
+            <trans-unit id="config.email">
+                <source>Email</source>
+            </trans-unit>
+            <trans-unit id="config.password">
+                <source>Password</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+    <file t3:id="1503044238" source-language="en" datatype="plaintext" original="messages" date="2017-07-24T11:36:27Z" product-name="supr">
+        <header/>
+        <body>
+            <trans-unit id="tt_content.CType.supr_widget">
+                <source>SUPR Widget</source>
+            </trans-unit>
+            <trans-unit id="tt_content.palette.supr">
+                <source>SUPR</source>
+            </trans-unit>
+            <trans-unit id="tt_content.supr_widget_id">
+                <source>Widget</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

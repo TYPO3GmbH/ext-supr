@@ -1,44 +1,49 @@
 <?php
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
-    [
-        'LLL:EXT:supr/Resources/Private/Language/Tca.xlf:plugin.supr_widget',
-        'supr_widget',
-        'ctype-supr-widget'
-    ],
-    'CType',
-    'supr'
-);
 
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['supr_widget'] = 'ctype-supr-widget';
+call_user_func(function () {
+    $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['supr_widget'] = 'content-supr-widget';
 
-$columns = [
-    'supr_widget_id' => [
-        'label' => 'LLL:EXT:supr/Resources/Private/Language/Tca.xlf:tt_content.supr_widget_id',
-        'config' => [
-            'type' => 'select',
-            'renderType' => 'selectSingle',
-            'items' => [
-                [
-                    ''
-                ]
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+        'tt_content',
+        'CType',
+        [
+            'LLL:EXT:supr/Resources/Private/Language/locallang_db.xlf:tt_content.CType.supr_widget',
+            'supr_widget',
+            'content-supr-widget',
+        ],
+        'textmedia',
+        'after'
+    );
+
+    $newFields = [
+        'supr_widget_id' => [
+            'label' => 'LLL:EXT:supr/Resources/Private/Language/locallang_db.xlf:tt_content.supr_widget_id',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [],
+                'fieldWizard' => [
+                    'suprwidgetelement' => [
+                        'renderType' => 'SuprWidgetElement',
+                    ],
+                ],
             ],
-            'itemsProcFunc' => \Supr\Supr\Repository\SuprWidgetRepository::class . '->getWidgetsForItemsProcFunc',
-            'default' => '',
-        ]
-    ],
-];
+        ],
+    ];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $columns);
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $newFields);
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tt_content', 'supr', 'supr_widget_id');
 
-$GLOBALS['TCA']['tt_content']['types']['supr_widget'] = [
-    'showitem' => '
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.header;header,supr_widget_id,
-        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:layout_formlabel,
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
-        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,hidden;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:field.default.hidden,
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
-        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,rowDescription,
-        --div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,categories
-'
-];
+
+    $GLOBALS['TCA']['tt_content']['types']['supr_widget'] = [
+        'showitem' =>
+            '--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,'
+            . 'header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header.ALT.html_formlabel,'
+            . '--palette--;LLL:EXT:supr/Resources/Private/Language/locallang_db.xlf:tt_content.palette.supr;supr,'
+            . '--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,'
+            . '--palette--;;language,'
+            . '--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,'
+            . '--palette--;;hidden,'
+            . '--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,',
+    ];
+});

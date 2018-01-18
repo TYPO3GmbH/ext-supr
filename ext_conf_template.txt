@@ -1,0 +1,5 @@
+# cat=Login; type=string; label=LLL:EXT:supr/Resources/Private/Language/locallang_backend.xlf:config.email
+email =
+
+# cat=Login; type=password; label=LLL:EXT:supr/Resources/Private/Language/locallang_backend.xlf:config.password
+password =

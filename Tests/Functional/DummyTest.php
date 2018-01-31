@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace WMDB\Supr\Tests\Functional;
+namespace Supr\Supr\Tests\Functional;
 
 /*
  * This file is part of the TYPO3 CMS project.

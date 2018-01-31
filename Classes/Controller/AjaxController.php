@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
-namespace WMDB\Supr\Controller;
+namespace Supr\Supr\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Supr\Supr\Renderer\WidgetRenderer;
+use Supr\Supr\Service\WidgetService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use WMDB\Supr\Renderer\WidgetRenderer;
-use WMDB\Supr\Service\WidgetService;
 
 /**
  * Controller for AJAX actions
@@ -33,7 +33,7 @@ class AjaxController
             } catch (\Exception $e) {
                 $response = $response->withStatus(500);
                 $response->getBody()->write(json_encode([
-                    'exception' => $e->getMessage()
+                    'exception' => $e->getMessage(),
                 ]));
             }
         }

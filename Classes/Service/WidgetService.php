@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
-namespace WMDB\Supr\Service;
+namespace Supr\Supr\Service;
 
+use Supr\Supr\Exception\InvalidWidgetException;
+use Supr\Supr\Exception\UnavailableContentInPayloadException;
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 use TYPO3\CMS\Core\Http\RequestFactory;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use WMDB\Supr\Exception\InvalidWidgetException;
-use WMDB\Supr\Exception\UnavailableContentInPayloadException;
 
 /**
  * Service class responsible for remote widgets

@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
-namespace WMDB\Supr\Form\Element;
+namespace Supr\Supr\Form\Element;
 
+use Supr\Supr\Renderer\WidgetRenderer;
+use Supr\Supr\Service\WidgetService;
 use TYPO3\CMS\Backend\Form\Element\AbstractFormElement;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Messaging\FlashMessageRendererResolver;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use WMDB\Supr\Renderer\WidgetRenderer;
-use WMDB\Supr\Service\WidgetService;
 
 /**
  * Renders the widget preview element
@@ -44,7 +44,7 @@ class SuprWidgetElement extends AbstractFormElement
             $content = GeneralUtility::makeInstance(WidgetRenderer::class)->render($widget);
         } catch (\Exception $e) {
             $content = GeneralUtility::makeInstance(FlashMessageRendererResolver::class)->resolve()->render([
-                GeneralUtility::makeInstance(FlashMessage::class, $e->getMessage(), '', FlashMessage::ERROR)
+                GeneralUtility::makeInstance(FlashMessage::class, $e->getMessage(), '', FlashMessage::ERROR),
             ]);
         }
 
@@ -55,7 +55,9 @@ class SuprWidgetElement extends AbstractFormElement
             FlashMessage::INFO
         );
 
-        $loadSpinner = GeneralUtility::makeInstance(IconFactory::class)->getIcon('spinner-circle-dark', Icon::SIZE_LARGE)->render();
+        $loadSpinner = GeneralUtility::makeInstance(IconFactory::class)
+            ->getIcon('spinner-circle-dark', Icon::SIZE_LARGE)
+            ->render();
 
         $markup = [];
         $markup[] = '<div class="formengine-supr-widget-wizard">';

@@ -1,16 +1,16 @@
 <?php
 declare(strict_types=1);
-namespace WMDB\Supr\Tests\Controller;
+namespace Supr\Supr\Tests\Controller;
 
 use Prophecy\Argument;
 use Psr\Http\Message\ServerRequestInterface;
+use Supr\Supr\Controller\AjaxController;
+use Supr\Supr\Renderer\WidgetRenderer;
+use Supr\Supr\Service\WidgetService;
 use TYPO3\CMS\Core\Http\Response;
 use TYPO3\CMS\Core\Http\ServerRequest;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
-use WMDB\Supr\Controller\AjaxController;
-use WMDB\Supr\Renderer\WidgetRenderer;
-use WMDB\Supr\Service\WidgetService;
 
 /**
  * Test class for Controller/AjaxController

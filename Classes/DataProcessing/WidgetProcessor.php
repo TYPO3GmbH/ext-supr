@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
-namespace WMDB\Supr\DataProcessing;
+namespace Supr\Supr\DataProcessing;
 
+use Supr\Supr\Exception\InvalidWidgetException;
+use Supr\Supr\Service\WidgetService;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
-use WMDB\Supr\Exception\InvalidWidgetException;
-use WMDB\Supr\Service\WidgetService;
 
 /**
  * Data processor for SUPR widgets
@@ -24,7 +24,7 @@ class WidgetProcessor implements DataProcessorInterface, SingletonInterface
     }
 
     /**
-     * Process data for the CType "fs_slider"
+     * Process data for the CType "supr_widget"
      *
      * @param ContentObjectRenderer $cObj The content object renderer, which contains data of the content element
      * @param array $contentObjectConfiguration The configuration of Content Object
@@ -32,8 +32,12 @@ class WidgetProcessor implements DataProcessorInterface, SingletonInterface
      * @param array $processedData Key/value store of processed data (e.g. to be passed to a Fluid View)
      * @return array the processed data as key/value store
      */
-    public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData): array
-    {
+    public function process(
+        ContentObjectRenderer $cObj,
+        array $contentObjectConfiguration,
+        array $processorConfiguration,
+        array $processedData
+    ): array {
         $widgetService = GeneralUtility::makeInstance(WidgetService::class);
         try {
             $widget = $widgetService->getSelectedWidget($processedData['data']['supr_widget_id']);

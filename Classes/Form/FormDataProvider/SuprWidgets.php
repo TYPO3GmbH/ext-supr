@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
-namespace WMDB\Supr\Form\FormDataProvider;
+namespace Supr\Supr\Form\FormDataProvider;
 
+use Supr\Supr\Service\WidgetService;
 use TYPO3\CMS\Backend\Form\FormDataProviderInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use WMDB\Supr\Service\WidgetService;
 
 /**
  * Resolve return Url if not set otherwise.

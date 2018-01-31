@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
-namespace WMDB\Supr\Renderer;
+namespace Supr\Supr\Renderer;
 
+use Supr\Supr\Exception\ProductNotAvailableException;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Lang\LanguageService;
-use WMDB\Supr\Exception\ProductNotAvailableException;
 
 /**
  * Service class that renders parts of the backend wizard

@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
-namespace WMDB\Supr\Tests\Renderer;
+namespace Supr\Supr\Tests\Renderer;
 
+use Supr\Supr\Exception\ProductNotAvailableException;
+use Supr\Supr\Renderer\WidgetRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Lang\LanguageService;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
-use WMDB\Supr\Exception\ProductNotAvailableException;
-use WMDB\Supr\Renderer\WidgetRenderer;
 
 /**
  * Test class for Renderer/WidgetRendererTest

@@ -1,17 +1,17 @@
 <?php
 declare(strict_types=1);
-namespace WMDB\Supr\Tests\Service;
+namespace Supr\Supr\Tests\Service;
 
 use Prophecy\Argument;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
+use Supr\Supr\Exception\InvalidWidgetException;
+use Supr\Supr\Exception\UnavailableContentInPayloadException;
+use Supr\Supr\Service\WidgetService;
 use TYPO3\CMS\Core\Http\RequestFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\StringUtility;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
-use WMDB\Supr\Exception\InvalidWidgetException;
-use WMDB\Supr\Exception\UnavailableContentInPayloadException;
-use WMDB\Supr\Service\WidgetService;
 
 /**
  * Test class for Service/WidgetService

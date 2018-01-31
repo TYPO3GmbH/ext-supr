@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace WMDB\Supr\Exception;
+namespace Supr\Supr\Exception;
 
 use TYPO3\CMS\Core\Exception;
 

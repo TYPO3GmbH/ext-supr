@@ -6,6 +6,6 @@
 return [
     'supr_render_widget' => [
         'path' => '/supr/widget',
-        'target' => \WMDB\Supr\Controller\AjaxController::class . '::renderAction',
+        'target' => \Supr\Supr\Controller\AjaxController::class . '::renderAction',
     ],
 ];

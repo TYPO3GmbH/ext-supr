@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
-namespace WMDB\Supr\Hooks;
+namespace Supr\Supr\Hooks;
 
+use Supr\Supr\Renderer\WidgetRenderer;
+use Supr\Supr\Service\WidgetService;
 use TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Messaging\FlashMessageRendererResolver;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use WMDB\Supr\Renderer\WidgetRenderer;
-use WMDB\Supr\Service\WidgetService;
 
 /**
  * Layout hook for "Page" module

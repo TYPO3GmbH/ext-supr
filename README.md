@@ -1,7 +1,7 @@
 # SUPR
 ## Introduction
 ### What does it do?
-This extension renders your configured widgets for products from the SUPR management tool into your TYPO3 frontend.\
+This extension renders your configured widgets for products from the SUPR management tool into your TYPO3 frontend.
 An editor can add a special content element to select such widgets for rendering.
 
 ### Need Support?
@@ -17,12 +17,12 @@ If you need support for the SUPR products, please refer to
 ---
 ## For Editors
 ### Add the plugin
-Switch to the page module.\
-To include the SUPR content element you have to add it to your desired page.\
+Switch to the page module.
+To include the SUPR content element you have to add it to your desired page.
 You can find it here: `Special Elements -> SUPR Widget`.
 
 ### Configure the plugin
-After creating the content element, you choose between different widget-styles. These styles are configured in the SUPR managment tool.\
+After creating the content element, you choose between different widget-styles. These styles are configured in the SUPR managment tool.
 In the content element, you will see a preview of your widget.
 
 ---

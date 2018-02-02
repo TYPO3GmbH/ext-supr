@@ -33,10 +33,10 @@ Supr
 		2017
 
 	:Author:
-		WMDB Systems GmbH
+		Wirecard Technologies GmbH
 
 	:Email:
-		author@example.com
+		typo3@supr.com
 
 	:License:
 		This document is published under the Open Publication License

@@ -1,0 +1,18 @@
+tt_content {
+    supr_widget =< lib.contentElement
+    supr_widget {
+        templateName = SuprWidget
+
+        stdWrap {
+            editIcons = tt_content: bodytext
+            editIcons {
+                beforeLastTag = 1
+                iconTitle.data = LLL:EXT:fluid_styled_content/Resources/Private/Language/FrontendEditing.xlf:editIcon.html
+            }
+        }
+
+        dataProcessing {
+            10 = Supr\Supr\DataProcessing\WidgetProcessor
+        }
+    }
+}

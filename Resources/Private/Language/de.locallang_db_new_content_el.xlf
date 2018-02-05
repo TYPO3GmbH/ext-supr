@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+    <file t3:id="1503044775" source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-08-18T08:26:15Z" product-name="supr">
+        <header/>
+        <body>
+            <trans-unit id="special_supr_widget_title">
+                <source>SUPR Widget</source>
+                <target>SUPR Produkt-Widget</target>
+            </trans-unit>
+            <trans-unit id="special_supr_widget_description">
+                <source>Loads any widget of SUPR</source>
+                <target>Lädt ein beliebiges Produkt-Widget aus SUPR</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

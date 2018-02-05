@@ -1,0 +1,19 @@
+.formengine-field-item .formengine-supr-widget-wizard {
+    margin-top: 18px;
+}
+
+.formengine-supr-widget-wizard .footer-input {
+    margin-top: 5px;
+}
+
+.supr-element-square {
+    border-radius: 0;
+}
+
+.supr-element-rounded {
+    border-radius: 4px;
+}
+
+.supr-element-round {
+    border-radius: 100px;
+}

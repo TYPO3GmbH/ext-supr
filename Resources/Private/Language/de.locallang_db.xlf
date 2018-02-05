@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+    <file t3:id="1503044707" source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-08-18T08:25:07Z" product-name="supr">
+        <header/>
+        <body>
+            <trans-unit id="tt_content.CType.supr_widget">
+                <source>SUPR Widget</source>
+                <target>SUPR Produkt-Widget</target>
+            </trans-unit>
+            <trans-unit id="tt_content.palette.supr">
+                <source>SUPR</source>
+                <target>SUPR</target>
+            </trans-unit>
+            <trans-unit id="tt_content.supr_widget_id">
+                <source>Widget</source>
+                <target>Produkt-Widget</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

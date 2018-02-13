@@ -4,12 +4,12 @@
         <header/>
         <body>
             <trans-unit id="config.email">
-                <source>Email</source>
-                <target>E-Mail</target>
+                <source>Email:The same email address as used for your account at supr.com.</source>
+                <target>E-Mail:Die selbe E-Mailadresse, die für Ihr Konto auf supr.com verwendet wird.</target>
             </trans-unit>
             <trans-unit id="config.password">
-                <source>Password</source>
-                <target>Passwort</target>
+                <source>Password:The same password as used for your account at supr.com.</source>
+                <target>Passwort:Das selbe Passwort, die für Ihr Konto auf supr.com verwendet wird.</target>
             </trans-unit>
         </body>
     </file>

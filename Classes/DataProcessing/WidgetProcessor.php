@@ -2,8 +2,8 @@
 declare(strict_types=1);
 namespace Supr\Supr\DataProcessing;
 
-use Supr\Supr\Exception\InvalidWidgetException;
 use Supr\Supr\Service\WidgetService;
+use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -38,16 +38,22 @@ class WidgetProcessor implements DataProcessorInterface, SingletonInterface
         array $processorConfiguration,
         array $processedData
     ): array {
-        $widgetService = GeneralUtility::makeInstance(WidgetService::class);
+        $widget = [];
         try {
-            $widget = $widgetService->getSelectedWidget($processedData['data']['supr_widget_id']);
-        } catch (InvalidWidgetException $e) {
-            $widget = [
-                'product_id' => $processedData['data']['supr_widget_id'],
-            ];
+            $widgetService = GeneralUtility::makeInstance(WidgetService::class);
+            $widget['shop_slug'] = $widgetService->getShopSlug();
+            $widget = array_merge($widget, $widgetService->getSelectedWidget($processedData['data']['supr_widget_id']));
+        } catch (\Exception $e) {
+            $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
+            $logger->error(
+                $e->getMessage(),
+                [
+                    'table' => $cObj->getCurrentTable(),
+                    'uid' => $processedData['data']['uid'],
+                    'exception' => $e,
+                ]
+            );
         }
-
-        $widget['shop_slug'] = $widgetService->getShopSlug();
 
         $processedData['widget'] = $widget;
 

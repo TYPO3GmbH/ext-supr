@@ -2,6 +2,8 @@
 declare(strict_types=1);
 namespace Supr\Supr\Service;
 
+use Supr\Supr\Exception\EmptyContentException;
+use Supr\Supr\Exception\InvalidCredentialsException;
 use Supr\Supr\Exception\InvalidWidgetException;
 use Supr\Supr\Exception\UnavailableContentInPayloadException;
 use TYPO3\CMS\Core\Cache\CacheManager;
@@ -46,18 +48,29 @@ class WidgetService implements SingletonInterface
 
     /**
      * @return self
+     * @throws InvalidCredentialsException
      */
     protected function authenticate(): self
     {
-        $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['supr'], ['allowed_classes' => false]);
-        $response = $this->sendRequest($this->getAuthenticationUrl(), 'POST', [
-            'form_params' => [
-                'email' => $extensionConfiguration['email'],
-                'password' => $extensionConfiguration['password'],
-            ],
-        ]);
+        if (!isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['supr'])) {
+            throw new InvalidCredentialsException('Authentication to SUPR failed due to unset credentials', 1518518231);
+        }
 
-        $this->authPayload = $response['payload'];
+        $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['supr'], ['allowed_classes' => false]);
+
+        try {
+            $response = $this->sendRequest($this->getAuthenticationUrl(), 'POST', [
+                'form_params' => [
+                    'email' => $extensionConfiguration['email'],
+                    'password' => $extensionConfiguration['password'],
+                ],
+            ]);
+
+            $this->authPayload = $response['payload'];
+        } catch (EmptyContentException $e) {
+            // Authentication failed, throw correct exception
+            throw new InvalidCredentialsException('Authentication to SUPR failed due to invalid credentials', 1518518065, $e);
+        }
 
         return $this;
     }
@@ -121,16 +134,20 @@ class WidgetService implements SingletonInterface
      * @param string $method
      * @param array $options
      * @return array
+     * @throws EmptyContentException
      * @throws UnavailableContentInPayloadException
      */
     protected function sendRequest(string $url, string $method = 'GET', array $options = []): array
     {
         $requestFactory = GeneralUtility::makeInstance(RequestFactory::class);
         $response = $requestFactory->request($url, $method, $options);
-        $body = $response->getBody();
+        $bodyContent = $response->getBody()->getContents();
 
-        $content = json_decode($body->getContents(), true);
+        if (empty($bodyContent)) {
+            throw new EmptyContentException($url . ' returned an empty response', 1518517876);
+        }
 
+        $content = json_decode($bodyContent, true);
         $requestedContent = $content['content'];
         $availableContent = array_keys($content['payload']);
         $difference = array_diff($requestedContent, $availableContent);

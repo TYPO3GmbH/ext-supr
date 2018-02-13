@@ -4,6 +4,7 @@ namespace Supr\Supr\Form\FormDataProvider;
 
 use Supr\Supr\Service\WidgetService;
 use TYPO3\CMS\Backend\Form\FormDataProviderInterface;
+use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -18,8 +19,21 @@ class SuprWidgets implements FormDataProviderInterface
     public function addData(array $result): array
     {
         if ($result['recordTypeValue'] === 'supr_widget') {
-            $widgetService = GeneralUtility::makeInstance(WidgetService::class);
-            $widgets = $widgetService->fetchWidgets();
+            try {
+                $widgetService = GeneralUtility::makeInstance(WidgetService::class);
+                $widgets = $widgetService->fetchWidgets();
+            } catch (\Exception $e) {
+                $logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
+                $logger->error(
+                    $e->getMessage(),
+                    [
+                        'table' => $result['tableName'],
+                        'uid' => $result['vanillaUid'],
+                        'exception' => $e,
+                    ]
+                );
+                return $result;
+            }
 
             foreach ($widgets as $widget) {
                 if ($widget['product'] === null) {

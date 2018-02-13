@@ -24,7 +24,13 @@ class SuprWidgetElement extends AbstractFormElement
         $this->getLanguageService()->includeLLFile('EXT:supr/Resources/Private/Language/locallang_widget.xlf');
         $resultArray = $this->initializeResultArray();
 
+        /** @var FlashMessage[] $flashMessages */
+        $flashMessages = [];
+        $content = '';
+
         try {
+            $widgetService = GeneralUtility::makeInstance(WidgetService::class);
+
             if (empty($this->data['processedTca']['columns']['supr_widget_id']['config']['items'])) {
                 throw new \RuntimeException('There are no widgets available', 1501222499);
             }
@@ -38,22 +44,19 @@ class SuprWidgetElement extends AbstractFormElement
                 $selectedWidgetId = (int)array_shift($this->data['databaseRow']['supr_widget_id']);
             }
 
-            $widgetService = GeneralUtility::makeInstance(WidgetService::class);
             $widget = $widgetService->getSelectedWidget($selectedWidgetId);
 
             $content = GeneralUtility::makeInstance(WidgetRenderer::class)->render($widget);
-        } catch (\Exception $e) {
-            $content = GeneralUtility::makeInstance(FlashMessageRendererResolver::class)->resolve()->render([
-                GeneralUtility::makeInstance(FlashMessage::class, $e->getMessage(), '', FlashMessage::ERROR),
-            ]);
-        }
 
-        $flashMessage = GeneralUtility::makeInstance(
-            FlashMessage::class,
-            $this->getLanguageService()->getLL('tt_content.supr_widget_id.wizard.preview.message'),
-            $this->getLanguageService()->getLL('tt_content.supr_widget_id.wizard.preview.title'),
-            FlashMessage::INFO
-        );
+            $flashMessages[] = GeneralUtility::makeInstance(
+                FlashMessage::class,
+                $this->getLanguageService()->getLL('tt_content.supr_widget_id.wizard.preview.message'),
+                $this->getLanguageService()->getLL('tt_content.supr_widget_id.wizard.preview.title'),
+                FlashMessage::INFO
+            );
+        } catch (\Exception $e) {
+            $flashMessages[] = GeneralUtility::makeInstance(FlashMessage::class, $e->getMessage(), '', FlashMessage::ERROR);
+        }
 
         $loadSpinner = GeneralUtility::makeInstance(IconFactory::class)
             ->getIcon('spinner-circle-dark', Icon::SIZE_LARGE)
@@ -62,7 +65,7 @@ class SuprWidgetElement extends AbstractFormElement
         $markup = [];
         $markup[] = '<div class="formengine-supr-widget-wizard">';
         $markup[] =   '<div class="t3js-load-spinner hidden">' . $loadSpinner . '</div>';
-        $markup[] =   GeneralUtility::makeInstance(FlashMessageRendererResolver::class)->resolve()->render([$flashMessage]);
+        $markup[] =   GeneralUtility::makeInstance(FlashMessageRendererResolver::class)->resolve()->render($flashMessages);
         $markup[] =   '<div class="row">';
         $markup[] =     '<div class="col-sm-6 col-lg-4 t3js-formengine-supr-widget-preview">';
         $markup[] =       $content;

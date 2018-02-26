@@ -30,6 +30,16 @@ Configuration
 
 After installation, you have to configure the extension. Switch to the Extension Manager and click on the extension name.
 
+Registration
+^^^^^^^^^^^^
+
+In order to use the extension in your TYPO3 website, you need an account at the SUPR application.
+
+#. Register at supr.com with your email address.
+#. You will receive an email with your password.
+#. Create widgets in the SUPR administration.
+#. Install the SUPR TYPO3 extension and use your login data from SUPR in the configuration.
+#. Now you can use your created widgets as content elements in TYPO3.
 
 Login
 ^^^^^

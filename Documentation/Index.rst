@@ -24,7 +24,8 @@ Supr
 		en
 
 	:Description:
-		enter description.
+		SUPR provides easy to set up online stores, shopping widgets for embedding and social checkouts for selling on social media —
+    All with a central management of products and orders.
 
 	:Keywords:
 		comma,separated,list,keywords

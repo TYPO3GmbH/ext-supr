@@ -15,7 +15,7 @@ Supr
 .. only:: html
 
 	:Classification:
-		extension_key
+		supr
 
 	:Version:
 		|release|
@@ -28,7 +28,7 @@ Supr
     All with a central management of products and orders.
 
 	:Keywords:
-		comma,separated,list,keywords
+		shop, widget
 
 	:Copyright:
 		2017

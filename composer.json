@@ -16,7 +16,6 @@
     }
   ],
   "replace": {
-    "supr": "self.version",
     "supr/supr": "self.version"
   },
   "require": {
